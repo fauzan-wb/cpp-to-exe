@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string nama, sekolah;
+    char lagi = 'y';
+
+    while (lagi == 'y') {
+        cout << "Nama: ";
+        getline(cin, nama);
+        cout << "Sekolah: ";
+        getline(cin, sekolah);
+
+        cout << "Halo " << nama << " dari " << sekolah << endl;
+
+        cout << "Input lagi (y/n)? ";
+        cin >> lagi;
+        cin.ignore();
+    }
+
+    cout << "Selesai\n";
+    return 0;
+}
