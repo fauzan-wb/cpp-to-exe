@@ -1,0 +1,43 @@
+menu = {
+    "1": ("Soto", 15000),
+    "2": ("Rawon", 20000),
+    "3": ("Pecel", 10000),
+    "4": ("Teh", 3000),
+    "5": ("Kopi", 5000),
+}
+
+def tampil_menu():
+    print("=== MINI KASIR ===")
+    for k in menu:
+        print(k + ".", menu[k][0], "-", menu[k][1])
+    print("0. Selesai")
+
+def hitung(pilih, jumlah):
+    nama, harga = menu[pilih]
+    subtotal = harga * jumlah
+    print(nama, "x", jumlah, "=", subtotal)
+    return subtotal
+
+def bayar(total):
+    print("Total bayar:", total)
+    uang = int(input("Uang bayar: "))
+    if uang < total:
+        print("Uang kurang")
+    else:
+        print("Kembalian:", uang - total)
+
+def main():
+    total = 0
+    tampil_menu()
+    while True:
+        pilih = input("Pilih menu: ")
+        if pilih == "0":
+            break
+        if pilih in menu:
+            jumlah = int(input("Jumlah: "))
+            total += hitung(pilih, jumlah)
+        else:
+            print("Menu tidak ada")
+    bayar(total)
+
+main()
